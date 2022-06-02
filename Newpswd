@@ -1,0 +1,28 @@
+import re
+test=int(input())
+for i in range(test):
+    length=int(input())
+    pswd=input()
+    up=False
+    low=False
+    num=False
+    special=False
+    
+    for j in range(len(pswd)): 
+        if pswd[j]>='A' and pswd[j]<='Z':
+            up=True
+        elif pswd[j]>='a' and pswd[j]<='z':
+            low=True
+        elif pswd[j]>='0' and pswd[j]<='9':
+            num=True
+        elif pswd[j]=='@' or pswd[j]=='#' or pswd[j]=='*' or pswd[j]=='&':
+            special=True
+    if not num: pswd+='1'
+    if not special:pswd+='@'
+    if not up: pswd+='A'
+    if not low:pswd+='a'
+    while len(pswd)<7:
+        pswd+='1'
+    while len(pswd)<7:
+        pswd+='a'
+    print(f'Case #{i+1}: {pswd}')
